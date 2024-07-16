@@ -1,5 +1,5 @@
 import {star} from '../assets/icons'
-
+import { frontendurl } from '../../url'
 const PopularProductCard = ({buildingname,rent,_id,address}) => {
   return (
     <div className="flex shrink-0 flex-col
