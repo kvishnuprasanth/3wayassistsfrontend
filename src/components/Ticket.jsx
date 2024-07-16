@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { frontendurl } from '../../url';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -39,7 +40,7 @@ export default function Ticket() {
       toast.error("Please fill all the fields.");
     } else if (id) {
       try {
-        await axios.post(`http://localhost:${process.env.PORT}/api/allList/addTickets`, { ...form, id });
+        await axios.post(`${frontendurl}/api/allList/addTickets`, { ...form, id });
         setArray([...array, form]);
         setForm({
           contactNo: '',

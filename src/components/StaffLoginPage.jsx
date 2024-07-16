@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { frontendurl } from '../../url';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,7 +26,7 @@ function StaffLoginPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:${process.env.PORT}/api/v3/login`, form);
+      const response = await axios.post(`${frontendurl}/api/v3/login`, form);
       toast.success(response.data.message);
       localStorage.setItem("staffLoginId", response.data.id);
       dispatch(authActions.staffLogin());

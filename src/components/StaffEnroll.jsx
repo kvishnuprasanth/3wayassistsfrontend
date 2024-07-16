@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { authActions } from '../store';
 import {Typography , Button} from 'antd';
 import { useNavigate } from 'react-router-dom';
-
+import { frontendurl } from '../../url';
 
 const StaffEnroll = () => {
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ const StaffEnroll = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:${process.env.PORT}/api/v3/staffregister`, form);
+      const response = await axios.post(`${frontendurl}/api/v3/staffregister`, form);
       toast.success(response.data.message);
       // Optionally, reset the form here
       setForm({

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Typography } from 'antd';
 import axios from 'axios';
+import { frontendurl } from '../../url';
 
 const cardContainerStyle = {
   display: 'flex',
@@ -33,7 +34,7 @@ const MyTickets = () => {
 
   const fetchTickets = async () => {
     try {
-      const response = await axios.get(`http://localhost:${process.env.PORT}/api/allList/mytickets`,  {
+      const response = await axios.get(`${frontendurl}/api/allList/mytickets`,  {
         params: { id },
       } );
       setTickets(response.data.tickets);
@@ -162,7 +163,7 @@ export default MyTickets;
 //   useEffect(() => {
 //     const fetchTickets = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:${process.env.PORT}/api/allList/pendingtickets');
+//         const response = await axios.get('${frontendurl}/api/allList/pendingtickets');
 //         setTickets(response.data.ticketslist);
 //       } catch (error) {
 //         console.error('Error fetching tickets:', error);

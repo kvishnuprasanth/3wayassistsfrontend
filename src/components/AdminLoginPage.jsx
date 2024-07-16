@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { authActions } from '../store';
+import { frontendurl } from '../../url';
 
 function AdminLoginPage() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function AdminLoginPage() {
     const handleSignIn = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:${process.env.PORT}/api/v4/login`, form);
+            const response = await axios.post(`${frontendurl}/api/v4/login`, form);
             toast.success(response.data.message);
             localStorage.setItem("adminLoginId", response.data.id);
             dispatch(authActions.adminLogin());

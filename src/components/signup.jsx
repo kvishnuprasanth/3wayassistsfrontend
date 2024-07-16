@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
+import { frontendurl } from '../../url';
 const SignUp =()=> {
     const navigate = useNavigate()
     const [cfmPassword,setcfmPassword] = useState("")
@@ -28,7 +28,7 @@ const SignUp =()=> {
     const submit=async(e)=>{
         e.preventDefault()
         if(data.password === cfmPassword){
-            await axios.post(`http://localhost:${process.env.PORT}/api/v1/register`, data)
+            await axios.post(`${frontendurl}/api/v1/register`, data)
             .then((response)=>{
                 console.log(response)
                 setdata({

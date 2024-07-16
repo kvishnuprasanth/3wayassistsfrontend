@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { frontendurl } from '../../url';
 import PopularProductCard from '../components/PopularProductCard';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -8,7 +9,7 @@ const PopularProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:${process.env.PORT}/api/v5/allbuildings`);
+        const response = await axios.get(`${frontendurl}/api/v5/allbuildings`);
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error);

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../store';
-
+import { frontendurl } from '../../url';
 
 function Login() {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault();
     setError(""); // Reset error message
     try {
-      const response = await axios.post(`http://localhost:${process.env.PORT}/api/v1/Login`, data);
+      const response = await axios.post(`${frontendurl}/api/v1/Login`, data);
       localStorage.setItem("id", response.data.others._id);
       
       dispatch(authActions.login());

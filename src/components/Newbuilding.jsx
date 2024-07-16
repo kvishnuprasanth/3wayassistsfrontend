@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
 import { authActions } from '../store';
 import {Typography , Button} from 'antd';
+import { frontendurl } from '../../url';
 
 
 // Initialize Toastify
@@ -48,7 +49,7 @@ const NewBuilding = () => {
     formData.append('form', JSON.stringify(form));
 
     try {
-      let response = await fetch(`http://localhost:${process.env.PORT}/api/v5/addbuilding`, {
+      let response = await fetch(`${frontendurl}/api/v5/addbuilding`, {
         method: 'POST',
         headers:{
           'Access-Control-Allow-Origin': '*',

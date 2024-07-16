@@ -1,1 +1,1 @@
-export { frontendurl: `http://localhost:${process.env.PORT}` }
+export const frontendurl = "https://threewayassistbackend.onrender.com"

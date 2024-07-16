@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { authActions } from '../store';
 import { useDispatch } from 'react-redux';
 import PopularProductCard from './PopularProductCard';
+import { frontendurl } from '../../url';
 
 const { Option } = Select;
 
@@ -78,7 +79,7 @@ const AdminLogin = () => {
 
   const fetchTickets = async () => {
     try {
-      const response = await axios.get(`http://localhost:${process.env.PORT}/api/allList/pendingtickets`);
+      const response = await axios.get(`${frontendurl}/api/allList/pendingtickets`);
       setTickets(response.data.ticketslist);
     } catch (error) {
       console.error('Error fetching tickets:', error);
@@ -87,7 +88,7 @@ const AdminLogin = () => {
 
   const fetchCompletedTickets = async () => {
     try {
-      const response = await axios.get(`http://localhost:${process.env.PORT}/api/allList/completedtickets`);
+      const response = await axios.get(`${frontendurl}/api/allList/completedtickets`);
       setCompletedTickets(response.data.completedTickets);
     } catch (error) {
       console.error('Error fetching completed tickets:', error);
@@ -96,7 +97,7 @@ const AdminLogin = () => {
 
   const fetchStaffMembers = async () => {
     try {
-      const response = await axios.get(`http://localhost:${process.env.PORT}/api/v3/stafflist`);
+      const response = await axios.get(`${frontendurl}/api/v3/stafflist`);
       setStaffMembers(response.data); // Update state with fetched data
     } catch (error) {
       console.error('Error fetching staff members:', error);
@@ -131,7 +132,7 @@ const AdminLogin = () => {
 
   const handleStaffSelect = async (staffId) => {
     try {
-      const response = await axios.post(`http://localhost:${process.env.PORT}/api/v3/staff`, { staffId });
+      const response = await axios.post(`${frontendurl}/api/v3/staff`, { staffId });
 
       setAssignStaff(response.data);
       setSelectedStaff(response.data.fullName);
@@ -144,7 +145,7 @@ const AdminLogin = () => {
 
   const handleModalOk = () => {
     axios
-      .post(`http://localhost:${process.env.PORT}/api/allList/assign`, {
+      .post(`${frontendurl}/api/allList/assign`, {
         staffId: assignStaff._id,
         ticketId: selectedIssue._id,
       })
@@ -171,7 +172,7 @@ const AdminLogin = () => {
       useEffect(() => {
         const fetchProducts = async () => {
           try {
-            const response = await axios.get(`http://localhost:${process.env.PORT}/api/v5/allbuildings`);
+            const response = await axios.get(`${frontendurl}/api/v5/allbuildings`);
             setProducts(response.data);
           } catch (error) {
             console.error('Error fetching products:', error);
@@ -468,7 +469,7 @@ const AdminLogin = () => {
               onCancel={handleModalCancel}
               footer={null}
             >
-              <img src={`http://localhost:${process.env.PORT}/api/allList/taskpicture?id=${photoUrl}`} alt="Ticket Photo" style={{ maxWidth: '100%', height: 'auto' }} />
+              <img src={`${frontendurl}/api/allList/taskpicture?id=${photoUrl}`} alt="Ticket Photo" style={{ maxWidth: '100%', height: 'auto' }} />
             </Modal>
           </div>
         </>

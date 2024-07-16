@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Card, Typography, Button, Modal } from 'antd';
 import axios from 'axios'; // Import axios for API requests
 import { issues } from '../constants'; // Import the issues array from the correct path
-
+import { frontendurl } from '../../url';
 const assignedContainerStyle = {
   display: 'flex',
   flexDirection: 'row',
@@ -76,7 +76,7 @@ const StaffLogin = () => {
 
   const fetchStaffTickets = async () => {
     try {
-      const response = await axios.get(`http://localhost:${process.env.PORT}/api/v3/staff/tickets`, {
+      const response = await axios.get(`${frontendurl}/api/v3/staff/tickets`, {
         params: { staffId: staffId },
       });
       setMyTickets(response.data.ticketss); // Assuming API response structure { ticketss: [...] }
@@ -106,7 +106,7 @@ const StaffLogin = () => {
     formData.append('form', JSON.stringify({ staffId, ticketId }));
     try {
 
-      await fetch(`http://localhost:${process.env.PORT}/api/v3/issue/completed`, {
+      await fetch(`${frontendurl}/api/v3/issue/completed`, {
         method: 'POST',
         headers:{
           'Access-Control-Allow-Origin': '*',
