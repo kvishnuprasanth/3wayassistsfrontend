@@ -35,7 +35,7 @@ const Dropdown = ({ onClose }) => {
   return (
     <section className="fixed top-20 right-4 z-50">
       <div className="relative">
-        <div className="w-56 bg-white rounded-lg shadow-md mt-2 z-index">
+        <div className="w-56 bg-white rounded-lg shadow-md mt-2 z-50">
           <div className="relative">
             <RouterLink
               to="/"

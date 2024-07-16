@@ -14,11 +14,11 @@ const Hero = () => {
     >
       <div
         id="hmm"
-        className="relative xl:w-2/5 flex-col justify-center items-start w-full pt-28"
+        className="relative xl:w-2/5 flex-col justify-center items-start w-full mr-14 pt-28"
       >
         <p className="text-xl font-montserrat text-black-50">Welcome to</p>
         <h1 className="mt-2 font-palanquin text-6xl sm:text-8xl max-sm:text-[48px] max-sm:leading-[52px] font-bold ">
-          <span className="text-purple-900 font-montserrat xl:bg-white xl:whitespace-nowrap relative z-50 pr-10 ">
+          <span className="text-purple-900 font-montserrat xl:bg-white xl:whitespace-nowrap relative pr-10 ">
             3WayAssist
           </span>
           <br />
