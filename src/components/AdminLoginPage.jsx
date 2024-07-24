@@ -27,6 +27,8 @@ function AdminLoginPage() {
     const handleSignIn = async (e) => {
         e.preventDefault();
         try {
+            form.username = form.username.trim()
+
             const response = await axios.post(`${frontendurl}/api/v4/login`, form);
             toast.success(response.data.message);
             localStorage.setItem("adminLoginId", response.data.id);
