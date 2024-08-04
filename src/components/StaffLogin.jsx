@@ -114,11 +114,14 @@ const StaffLogin = () => {
         // credentials: 'include',
         body: formData
       });// Assuming your ticket object has an _id field
-      fetchStaffTickets(); // Refresh the ticket list after closing a ticket
+      fetchStaffTickets();
+      setPhoto(null)
+      selectedImages[index] = null 
     } catch (error) {
       console.error('Error closing ticket:', error);
       // Handle error as needed (e.g., show error message to user)
     }
+    
   };
 
   const handleAssignTicket = (issue) => {
